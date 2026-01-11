@@ -10,7 +10,7 @@ import (
 
 // HTTPServer holds the HTTP server address from config
 type HTTPServer struct {
-	Addr string // Server address (e.g., :8080)
+	Addr string `yaml:"address" env-required:"true"` // Server address (e.g., :8082)
 }
 
 // Config struct maps YAML + ENV variables for the entire app
