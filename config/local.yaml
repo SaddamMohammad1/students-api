@@ -1,0 +1,5 @@
+env: "dev"
+# This is storage path where store the data, currently using sqllite db
+storage_path: "storage/storage.db"
+http_server:
+  address: "localhost:8082"
