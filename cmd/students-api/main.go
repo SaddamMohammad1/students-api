@@ -12,7 +12,13 @@ import (
 	"time"
 
 	"github.com/SaddamMohammad1/students-api/internal/config"
+	"github.com/SaddamMohammad1/students-api/internal/http/handlers/student"
 )
+
+// Command to run this project
+// go run cmd/students-api/main.go -config config/local.yaml
+// here -config is a flag
+// config/local.yaml is config file path where present the server related details
 
 func main() {
 	// load config
@@ -21,9 +27,7 @@ func main() {
 	// setup router
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Welcome to students api"))
-	})
+	router.HandleFunc("POST /api/students", student.New())
 	// setup server
 	server := http.Server{
 		Addr:    cfg.Addr,
